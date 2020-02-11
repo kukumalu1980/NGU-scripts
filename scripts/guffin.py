@@ -5,6 +5,7 @@ import time
 # Helper classes
 from classes.features import (
     AdvancedTraining,
+    Inventory,
     Adventure,
     BloodMagic,
     FightBoss,
@@ -94,7 +95,7 @@ class GuffinRun:
     def __do_quest() -> None:
         """Get the amount of available major quests."""
         text = Questing.get_quest_text().lower()
-        majors = Questing.get_available_majors()
+        majors = 0 # majors = Questing.get_available_majors()
         if majors == 0 and (
             coords.QUESTING_MINOR_QUEST in text
             or coords.QUESTING_NO_QUEST_ACTIVE in text
@@ -113,16 +114,18 @@ class GuffinRun:
         GuffinRun.rb_time = 0
         GuffinRun.__update_gamestate()
         if GuffinRun.rb_time > GuffinRun.max_rb_duration:
+            FightBoss.nuke()
             Rebirth.do_rebirth()
             return
+        Inventory.loadout(1)
         FightBoss.nuke()
         time.sleep(2)
         Adventure.adventure(const.ZONE_MAP[GuffinRun.gold_zone])
         BloodMagic.toggle_auto_spells(number=False, drop=False)
-        GoldDiggers.gold_diggers(GuffinRun.diggers)
-        BloodMagic.blood_magic(8)
         NGU.cap_ngu()
         NGU.cap_ngu(magic=True)
+        GoldDiggers.gold_diggers(GuffinRun.diggers)
+        BloodMagic.blood_magic(2)
         Wandoos.set_wandoos(0)
         Wandoos.wandoos(True, True)
         Augmentation.augments(
@@ -168,7 +171,7 @@ class GuffinRun:
 
         FightBoss.fight()
         Adventure.adventure(itopodauto=True)
-        MoneyPit.pit()
+        MoneyPit.pit(loadout=4)
         MoneyPit.spin()
         Misc.save_check()
         while GuffinRun.rb_time < GuffinRun.max_rb_duration:
