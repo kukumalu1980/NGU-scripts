@@ -13,13 +13,13 @@ class Settings(NamedTuple):
     zone: str = "sewers"
     # Name of the zone you wish to go to at the start of the rebirth.
     # See ZONE_MAP in constants.py for valid options.
-    gold_zone: str = "the rad-lands"
+    gold_zone: str = "jrpgville"
     # Which hack(s) to use.
     hacks: List[int] = [2]
     # Which digger(s) to use.
     diggers: List[int] = const.DEFAULT_DIGGER_ORDER
     # Use butter for major quests?
-    butter: bool = True
+    butter: bool = False
     # Which augments to use, see classes.features.Augments.augments() for naming convention.
     aug: List[str] = ["SS", "DS"]
     # Assign resources to wishes?
