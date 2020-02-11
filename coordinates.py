@@ -93,6 +93,22 @@ ABILITY_PRIORITY = {1: 6,  # Strong
                     9: 12 # Charge
                     }  # Paralyze
 
+# larger number means higher priority
+# use cool down as basis
+""" ABILITY_PRIORITY = {1: 4,  # Strong
+                    2: 15,  # Parry
+                    3: 8 + 8,  # Piercing
+                    4: 15 + 700,  # Ultimate, higher priority to follow the buffs
+                    5: 10 + 600,  # Block
+                    6: 45,  # Defensive
+                    7: 15 - 15,  # Heal, special handling involved
+                    8: 45 + 900,  # offensive buff
+                    9: 30 + 800,  # Charge
+                    10: 45 + 900,  # ultimate buff
+                    11: 15 + 1000,  # Paralyze
+                    12: 35,  # Hyper Regen
+                    } """
+
 # TITAN DICTIONARIES
 TITAN_PT = {"GRB": {"p": 1.3e3, "t": 1.3e3}, "GCT": {"p": 5e3, "t": 4e3},
             "jake": {"p": 1.4e4, "t": 1.2e4}, "UUG": {"p": 4e5, "t": 3e5},
@@ -153,7 +169,7 @@ THEME_DEFAULT = Pixel(348, 468)
 # FIGHT BOSS OFFSETS
 NUKE = Pixel(620, 145)
 FIGHT = Pixel(620, 275)
-FIGHT_STOP = Pixel(625, 165)
+FIGHT_STOP = Pixel(620, 200)
 
 # INVENTORY OFFSETS
 EQUIPMENT_SLOTS = {"accessory1": Pixel(480, 65),
@@ -185,7 +201,7 @@ TM_SPEED_MINUS = Pixel(570, 236)
 TM_MULT_MINUS = Pixel(570, 335)
 
 # BLOOD MAGIC OFFSETS
-BM_LOCKED = Pixel(231, 276)
+BM_LOCKED = Pixel(231, 240)
 
 BM_X = 570
 BM = {0: Pixel(BM_X, 228), 1: Pixel(BM_X, 263), 2: Pixel(BM_X, 298), 3: Pixel(BM_X, 333),
@@ -226,17 +242,18 @@ AUG_SCROLL_SANITY_TOP = Pixel(943, 261)
 AUG_SCROLL_SANITY_BOT = Pixel(943, 578)
 
 # NGU OFFSETS
-NGU_TARGET = Pixel(635, 205)
+NGU_TARGET = Pixel(635, 240)
 NGU_MAGIC = Pixel(380, 120)
-NGU_MINUS = Pixel(551, 207)
-NGU_PLUS = Pixel(517, 207)
-NGU_CAP = Pixel(590, 207)
+NGU_MINUS = Pixel(551, 240)
+NGU_PLUS = Pixel(517, 240)
+NGU_CAP = Pixel(590, 240)
 NGU_CAP_ALL = Pixel(625, 160)
-NGU_OVERCAP = Pixel(430, 135)
+NGU_OVERCAP = Pixel(430, 160)
 NGU_EVIL = ColorPixel(778, 146, "323232")
+NGU_SAD = ColorPixel(778, 160, "323232")
 
-NGU_BAR_MIN = Pixel(306, 215)
-NGU_BAR_MAX = Pixel(503, 215)
+NGU_BAR_MIN = Pixel(303, 240)
+NGU_BAR_MAX = Pixel(495, 240)
 NGU_BAR_OFFSET_Y = 35
 
 # ADV TRAINING OFFSETS
@@ -281,7 +298,7 @@ DIG_CAP = {1: Pixel(550, 185), 2: Pixel(865, 185), 3: Pixel(550, 375), 4: Pixel(
 DIG_LEVEL = [Pixel(535, 235), Pixel(850, 235), Pixel(535, 420), Pixel(850, 420)]
 
 DIG_CAP_ALL = Pixel(790, 113)
-DIG_DEACTIVATE_ALL = Pixel(850, 110)
+DIG_DEACTIVATE_ALL = Pixel(905, 110)
 
 # REBIRTH OFFSETS
 REBIRTH = Pixel(90, 420)
@@ -294,7 +311,7 @@ CHALLENGE_QUIT = Pixel(850, 115)
 OCR_REBIRTH_TIME = OCRBox(35, 375, 140, 392)
 
 # PIT OFFSETS
-PIT_CHECK = Pixel(195, 108)
+PIT_CHECK = Pixel(195, 75)
 PIT = Pixel(630, 290)
 PIT_CONFIRM = Pixel(437, 317)
 SPIN_MENU = Pixel(820, 235)
@@ -348,10 +365,11 @@ QUESTING_FILENAMES = ["q1.png", "q2.png", "q3.png", "q4.png", "q5.png", "q6.png"
 
 # SELLOUT OFFSETS
 SELLOUT = Pixel(235, 550)
+SELLOUT_BOOST_1 = Pixel(520, 115)
 SELLOUT_BOOST_2 = Pixel(520, 147)
-SELLOUT_MUFFIN_USE = Pixel(768, 256)
-SELLOUT_MUFFIN_BUY = Pixel(860, 255)
-OCR_MUFFIN = OCRBox(785, 204, 936, 240)
+SELLOUT_MUFFIN_USE = Pixel(768, 560)
+SELLOUT_MUFFIN_BUY = Pixel(860, 560)
+OCR_MUFFIN = OCRBox(785, 500, 936, 520)
 OCR_AP = OCRBox(450, 73, 800, 100)
 
 # EXP COSTS PER UNIT
@@ -435,7 +453,7 @@ BREAKDOWN_MISC_SCROLL_DRAG_END = Pixel(956, 150)
 IS_BOSS_CROWN = ColorPixel(735, 282, 'F7EF29')
 IS_ENEMY_ALIVE = ColorPixel(*HEALTH, ['D93030', 'EB3434', 'DB3131', 'DA3030','E73333']) # If you reduce the enemy healthbar to 1px, the color changes for some reason
 IS_DEAD = ColorPixel(*HEALTH, ['EBEBEB', 'ECECEC','FAFAFA'])
-IS_ITOPOD_ACTIVE = ColorPixel(594, 277, '000000') # Checks color of pixel in "Floor x" text
+IS_ITOPOD_ACTIVE = ColorPixel(594, 200, '000000') # Checks color of pixel in "Floor x" text
 IS_IDLE = ColorPixel(416, 86, 'FFEB04') # top right yellow pixel
 IS_SAVE_READY = ColorPixel(*SAVE, '99FF99')
 IS_PIT_READY = ColorPixel(*PIT_CHECK, '7FD23B')
@@ -444,8 +462,8 @@ COLOR_CHALLENGE_ACTIVE = ColorPixel(391, 111, '000000')
 
 # FEATURE UNLOCKED PIXEL CHECKS
 FCCX = 182 # FEATURE_COLOR_CHECK_X
-FCCY_ZERO = 52 # FEATURE_COLOR_CHECK_Y_ZERO
-FCCY_OFFSET = 29 # FEATURE_COLOR_CHECK_Y_OFFSET
+FCCY_ZERO = 25 # FEATURE_COLOR_CHECK_Y_ZERO
+FCCY_OFFSET = 27 # FEATURE_COLOR_CHECK_Y_OFFSET
 COLOR_LOCKED = ['97A8B6', '96A7B7']
 COLOR_TM_LOCKED = ColorPixel(FCCX, FCCY_ZERO+FCCY_OFFSET*7, COLOR_LOCKED)
 COLOR_BM_LOCKED = ColorPixel(FCCX, FCCY_ZERO+FCCY_OFFSET*8, [COLOR_LOCKED, '7B4A94'])
@@ -460,7 +478,7 @@ COLOR_BM_AUTO_GOLD = ColorPixel(*BM_AUTO_GOLD, '000000')
 COLOR_QUESTING_USE_MAJOR = ColorPixel(*QUESTING_USE_MAJOR, '000000')
 COLOR_WANDOOS_ENERGY_BB = ColorPixel(526, 250, ['58CC7E', '59CF81'])
 COLOR_WANDOOS_MAGIC_BB = ColorPixel(526, 350, ['718DF1', '738FF5'])
-COLOR_ADV_TRAINING_LOCKED = ColorPixel(195, 225, COLOR_LOCKED)
+COLOR_ADV_TRAINING_LOCKED = ColorPixel(195, 190, COLOR_LOCKED)
 COLOR_MEGA_BUFF_READY = ColorPixel(647, 176, ABILITY_ROW3_READY_COLOR)
 COLOR_ULTIMATE_BUFF_READY = ColorPixel(850, 110, ABILITY_ROW1_READY_COLOR)
 COLOR_REGULAR_ATTACK_READY = ColorPixel(325, 110, ABILITY_ROW1_READY_COLOR)
@@ -486,8 +504,8 @@ WISH_PAGE = [Pixel(340, WISH_PAGE_Y), Pixel(405, WISH_PAGE_Y), Pixel(470, WISH_P
 WISH_PORTRAIT = Pixel(353, 317)
 WISH_SELECTION = Pixel(313, 278)
 WISH_SELECTION_OFFSET = Pixel(92, 106)
-WISH_CLEAR_WISH = Pixel(800, 112)
-WISH_E_ADD = Pixel(590, 220)
-WISH_M_ADD = Pixel(720, 220)
+WISH_CLEAR_WISH = Pixel(850, 112)
+WISH_E_ADD = Pixel(600, 220)
+WISH_M_ADD = Pixel(740, 220)
 WISH_R_ADD = Pixel(860, 220)
-OCR_WISH_SLOTS = OCRBox(708, 120, 755, 135)
+OCR_WISH_SLOTS = OCRBox(740, 110, 800, 135)
